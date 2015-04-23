@@ -11,15 +11,14 @@ import Manos.Palo;
 
 public class Dealer {
 	
-	private List<Carta> cartas;
+	private List<Carta> cartas= new ArrayList<Carta>();
 	
 	
 
 	
 
-	public Dealer(List<Carta> cartas) {
+	public Dealer() {
 		super();
-		this.cartas = cartas;
 	}
 
 	public List<Carta> getCartas() {
@@ -34,15 +33,7 @@ public class Dealer {
 	 * Este metodo se encarga de sacar una carta al azar dentro del mazo que posee el dealer y la elimina de este 
 	 * @return
 	 */
-	public Carta azar(){
-		int random;
-		Carta c;
-		 Random r = new Random();
-         random = (r.nextInt(cartas.size()-1) );
-         c=cartas.get(random);
-         cartas.remove(random);
-         return c;
-	}
+
 
 }
 

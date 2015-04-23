@@ -16,10 +16,8 @@ public class Juego {
 	private int noJugadores;
 	private String estiloMesa;
 	private Date hora;
-	private List<Jugador> jugadores;
+	private List<Jugador> jugadores= new ArrayList<Jugador>();
 	private List<Ronda> rondas;
-	private Dealer dealer;
-	private List<Carta> mesa;
 	private List<Mano> manos;
 	
 
@@ -43,26 +41,6 @@ public class Juego {
 
 	public void setRondas(List<Ronda> rondas) {
 		this.rondas = rondas;
-	}
-
-
-	public Dealer getDealer() {
-		return dealer;
-	}
-
-
-	public void setDealer(Dealer dealer) {
-		this.dealer = dealer;
-	}
-
-
-	public List<Carta> getMesa() {
-		return mesa;
-	}
-
-
-	public void setMesa(List<Carta> mesa) {
-		this.mesa = mesa;
 	}
 
 
@@ -117,17 +95,6 @@ public class Juego {
 	
 	
 	
-	public void llenarManos(){
-		List<Carta> cartas;
-		for(Jugador j: jugadores){
-			cartas= new ArrayList<Carta>();
-			cartas.addAll(j.getMano());
-			cartas.addAll(mesa);
-			Mano m = new Mano(cartas);
-			manos.add(m);
-			
-		}
-		Collections.sort(manos,new ComparadorMano());
-	}
+
 
 }

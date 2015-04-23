@@ -1,27 +1,38 @@
 package Logica;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import Manos.Carta;
 
 public class Jugador {
 	
-	private String nombre;
-	private int puntos;
-	private int partidasGanadas;
-	private List<Carta> mano;
-	private String avatar;
-	
-	
-	public Jugador(String nombre, int puntos, int partidasGanadas,
-			List<Carta> mano) {
+	public Jugador(String nombre, int puntos, int partidasGanadas,String avatar) {
 		super();
 		this.nombre = nombre;
 		this.puntos = puntos;
 		this.partidasGanadas = partidasGanadas;
-		this.mano = mano;
+		this.avatar = avatar;
 	}
+
+	private String nombre;
+	private String pass;
+
+	private int puntos;
+	private int partidasGanadas;
+	private List<Carta> mano= new ArrayList<Carta>();
+	private String avatar;
 	
+	
+	
+	public Jugador(String nombre, String pass) {
+		super();
+		this.nombre = nombre;
+		this.pass = pass;
+	}
+	public Jugador() {
+		// TODO Auto-generated constructor stub
+	}
 	public String getNombre() {
 		return nombre;
 	}
@@ -46,7 +57,21 @@ public class Jugador {
 	public void setPartidasGanadas(int partidasGanadas) {
 		this.partidasGanadas = partidasGanadas;
 	}
+	public String getPass() {
+		return pass;
+	}
 
+	public void setPass(String pass) {
+		this.pass = pass;
+	}
+
+	public String getAvatar() {
+		return avatar;
+	}
+
+	public void setAvatar(String avatar) {
+		this.avatar = avatar;
+	}
 	
 	
 	
