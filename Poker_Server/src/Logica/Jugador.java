@@ -31,7 +31,6 @@ public class Jugador {
 		this.pass = pass;
 	}
 	public Jugador() {
-		// TODO Auto-generated constructor stub
 	}
 	public String getNombre() {
 		return nombre;

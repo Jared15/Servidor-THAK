@@ -51,7 +51,10 @@ public class Mesa   {
 		public void setJuego(Juego juego) {
 			this.juego = juego;
 		}
-
+		/**
+		 * Se encarga de llenar una lista de cartas con su respectivo valor y direccion de la imagen correspondiente al palo y el numero
+		 * Es el mazo #1 (primer diseno grafico de las cartas)
+		 */
 		public void llenarMazo (){
 			
 			//CARTAS
@@ -163,6 +166,11 @@ public class Mesa   {
 		System.out.println("------- Mazo de Cartas Nuevo--------");
 		}
 		
+		
+		/**
+		 * Se encarga de llenar una lista de cartas con su respectivo valor y direccion de la imagen correspondiente al palo y el numero
+		 * Es el mazo #2 (Segundo diseno grafico de las cartas)
+		 */
 public void llenarMazo2 (){
 			
 			//CARTAS
@@ -273,7 +281,12 @@ public void llenarMazo2 (){
 		//FIN CARTAS
 		System.out.println("------- Mazo de Cartas Nuevo--------");
 		}
-		
+	
+
+/**
+ * Saca una carta pseudo-aleatoria del mazo de cartas
+ * @return carta pseudo-aleatoria
+ */
 		public Carta azar(){
 			int random;
 			Carta c;
@@ -283,6 +296,11 @@ public void llenarMazo2 (){
 	         mazo.remove(random);
 	         return c;
 		}
+
+		/**
+		 * se encarga de proporcinar las cartas que va a tener el dealer en la mesa ( las 5 cartas del juego)
+		 * @param identificador de la ronda o estado en la cual se encuentra el juego 
+		 */
 		public void llenardealer(int ronda){
 			dealer.getCartas().add(azar());
 			dealer.getCartas().add(azar());
@@ -291,6 +309,10 @@ public void llenarMazo2 (){
 			dealer.getCartas().add(azar());
 		}
 		
+		
+		/**
+		 * Le ototga las 2 cartas a cada jugador con las cuales va a jugar en la partida
+		 */
 		public void llenarJugadores(){
 			for(int i = 0 ; i<juego.getJugadores().size();i++){
 				juego.getJugadores().get(i).getMano().add(azar());
@@ -301,6 +323,10 @@ public void llenarMazo2 (){
 			}
 		}
 		
+		
+		/**
+		 * LLena una estructura llamada manos en la cual de encuentran las 5 cartas que estan en la mesa y las dos que tiene cada jugador en la mano con el fin de compararlas e identificar la mano ganadora
+		 */
 		public void llenarManos(){
 			List<Carta> cartas;
 			for(Jugador j: juego.getJugadores()){

@@ -28,11 +28,6 @@ public class Dealer {
 	public void setCartas(List<Carta> cartas) {
 		this.cartas = cartas;
 	}
-	
-	/**
-	 * Este metodo se encarga de sacar una carta al azar dentro del mazo que posee el dealer y la elimina de este 
-	 * @return
-	 */
 
 
 }
