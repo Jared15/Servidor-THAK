@@ -5,9 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class DoblePar implements Comparacion {
+public class DoblePar implements Clasificacion {
 
-    private Comparacion siguiente;
+    private Clasificacion siguiente;
     private int valorPar1;
     private int valorPar2;
 

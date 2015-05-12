@@ -2,7 +2,7 @@ package Manos;
 
 
 
-public class CartaAlta implements Comparacion {
+public class CartaAlta implements Clasificacion {
  
     @Override
     public int clasificarMano(Mano mano) {        

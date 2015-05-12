@@ -17,13 +17,13 @@ import DB.SQLite;
 import Manos.Carta;
 
 
-public class Logica extends Observable implements RMI{
+public class Servidor extends Observable implements RMI{
 	static Mesa mesa;
 	static List<Jugador> jugadoresDataBase;
 	static SQLite sqlite;
 	List<Object> o;
 	
-protected Logica() throws RemoteException {
+protected Servidor() throws RemoteException {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -36,7 +36,7 @@ private static final long serialVersionUID = 1L;
 		sqlite.crearDB();
 		   try {
 	            Registry rmiRegistry = LocateRegistry.createRegistry(9999);
-	            RMI rmiService = (RMI) UnicastRemoteObject.exportObject(new Logica(), 9999);
+	            RMI rmiService = (RMI) UnicastRemoteObject.exportObject(new Servidor(), 9999);
 	            rmiRegistry.bind("RmiService", rmiService);
 	            System.out.println("Servidor iniciado");
 	        } catch (Exception ex) {
@@ -46,7 +46,7 @@ private static final long serialVersionUID = 1L;
 	}
 	@Override
 	public String getPath(int carta) throws RemoteException {
-		return mesa.getDealer().getCartas().get(carta).getPath();
+		return mesa.getCartas().get(carta).getPath();
 	}
 	
     private class WrappedObserver implements Observer, Serializable {
@@ -121,7 +121,7 @@ private static final long serialVersionUID = 1L;
 		mesa.llenarJugadores();
 		o= new ArrayList<Object>();
 		List<String> ls= new ArrayList<String>();
-		for(Carta j:mesa.getDealer().getCartas()){
+		for(Carta j:mesa.getCartas()){
 			ls.add(j.getPath());
 		}
 		for(Jugador j1: mesa.getJuego().getJugadores()){

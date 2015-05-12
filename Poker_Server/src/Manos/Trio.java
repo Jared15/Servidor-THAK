@@ -5,10 +5,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Trio implements Comparacion {
+public class Trio implements Clasificacion {
 
     private int valor;
-    private Comparacion siguiente;
+    private Clasificacion siguiente;
 
     public Trio() {
         siguiente = new DoblePar();

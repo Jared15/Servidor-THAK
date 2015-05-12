@@ -2,9 +2,9 @@ package Manos;
 
 
 
-public class Full implements Comparacion {
+public class Full implements Clasificacion {
 
-    private final Comparacion siguiente;
+    private final Clasificacion siguiente;
     private int valorTrio;
     private int valorPar;
     

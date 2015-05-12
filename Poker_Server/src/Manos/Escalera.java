@@ -2,9 +2,9 @@ package Manos;
 
 
 
-public class Escalera implements Comparacion {
+public class Escalera implements Clasificacion {
 
-    private Comparacion siguiente;
+    private Clasificacion siguiente;
     private int mayorEscalera;
 
     Escalera() {

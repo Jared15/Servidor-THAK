@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Par implements Comparacion {
-    private Comparacion siguiente;
+public class Par implements Clasificacion {
+    private Clasificacion siguiente;
     private int ignorado;
     private int valor;
 

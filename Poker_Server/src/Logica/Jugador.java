@@ -7,28 +7,24 @@ import Manos.Carta;
 
 public class Jugador {
 	
-	public Jugador(String nombre, int puntos, int partidasGanadas,String avatar) {
+	public Jugador(String nombre, int puntos) {
 		super();
 		this.nombre = nombre;
-		this.puntos = puntos;
-		this.partidasGanadas = partidasGanadas;
-		this.avatar = avatar;
+		this.dinero = puntos;
 	}
 
 	private String nombre;
-	private String pass;
 
-	private int puntos;
-	private int partidasGanadas;
+
+	private int dinero;
 	private List<Carta> mano= new ArrayList<Carta>();
-	private String avatar;
 	
 	
 	
-	public Jugador(String nombre, String pass) {
+	public Jugador(String nombre) {
 		super();
 		this.nombre = nombre;
-		this.pass = pass;
+
 	}
 	public Jugador() {
 	}
@@ -45,33 +41,12 @@ public class Jugador {
 		this.nombre = nombre;
 	}
 	public int getPuntos() {
-		return puntos;
+		return dinero;
 	}
 	public void setPuntos(int puntos) {
-		this.puntos = puntos;
-	}
-	public int getPartidasGanadas() {
-		return partidasGanadas;
-	}
-	public void setPartidasGanadas(int partidasGanadas) {
-		this.partidasGanadas = partidasGanadas;
-	}
-	public String getPass() {
-		return pass;
+		this.dinero = puntos;
 	}
 
-	public void setPass(String pass) {
-		this.pass = pass;
-	}
-
-	public String getAvatar() {
-		return avatar;
-	}
-
-	public void setAvatar(String avatar) {
-		this.avatar = avatar;
-	}
-	
 	
 	
 }

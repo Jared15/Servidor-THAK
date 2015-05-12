@@ -12,7 +12,8 @@ import Manos.Palo;
 
 public class Mesa   {
 		List<Carta> mazo= new ArrayList<Carta>();
-		Dealer dealer= new Dealer();
+		private List<Carta> cartas= new ArrayList<Carta>();
+
 		Juego juego = new Juego();
 		
 		
@@ -21,11 +22,18 @@ public class Mesa   {
 			
 		}
 
-		public Mesa(List<Carta> mazo, Dealer dealer, Juego juego) {
+		public Mesa(List<Carta> mazo, Juego juego) {
 			super();
 			this.mazo = mazo;
-			this.dealer = dealer;
 			this.juego = juego;
+		}
+
+		public List<Carta> getCartas() {
+			return cartas;
+		}
+
+		public void setCartas(List<Carta> cartas) {
+			this.cartas = cartas;
 		}
 
 		public List<Carta> getMazo() {
@@ -34,14 +42,6 @@ public class Mesa   {
 
 		public void setMazo(List<Carta> mazo) {
 			this.mazo = mazo;
-		}
-
-		public Dealer getDealer() {
-			return dealer;
-		}
-
-		public void setDealer(Dealer dealer) {
-			this.dealer = dealer;
 		}
 
 		public Juego getJuego() {
@@ -302,11 +302,11 @@ public void llenarMazo2 (){
 		 * @param identificador de la ronda o estado en la cual se encuentra el juego 
 		 */
 		public void llenardealer(int ronda){
-			dealer.getCartas().add(azar());
-			dealer.getCartas().add(azar());
-			dealer.getCartas().add(azar());
-			dealer.getCartas().add(azar());
-			dealer.getCartas().add(azar());
+			cartas.add(azar());
+			cartas.add(azar());
+			cartas.add(azar());
+			cartas.add(azar());
+			cartas.add(azar());
 		}
 		
 		
@@ -332,12 +332,13 @@ public void llenarMazo2 (){
 			for(Jugador j: juego.getJugadores()){
 				cartas= new ArrayList<Carta>();
 				cartas.addAll(j.getMano());
-				cartas.addAll(dealer.getCartas());
+				cartas.addAll(cartas);
 				Mano m = new Mano(cartas);
 				juego.getManos().add(m);
 				
 			}
 			Collections.sort(juego.getManos(),new ComparadorMano());
+			
 		}
 		
 		

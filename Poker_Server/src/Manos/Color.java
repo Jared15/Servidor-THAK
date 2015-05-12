@@ -6,9 +6,9 @@ import java.util.Collections;
 import java.util.List;
 
 
-public class Color implements Comparacion {
+public class Color implements Clasificacion {
 
-    private Comparacion siguiente;
+    private Clasificacion siguiente;
     private String palo;
 
     Color() {

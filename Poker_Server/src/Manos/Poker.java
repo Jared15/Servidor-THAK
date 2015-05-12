@@ -5,9 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Poker implements Comparacion {
+public class Poker implements Clasificacion {
 
-    private final Comparacion siguiente;
+    private final Clasificacion siguiente;
     private int valor;
 
     public Poker() {

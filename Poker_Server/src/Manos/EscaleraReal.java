@@ -4,19 +4,19 @@ package Manos;
 import java.util.List;
 
 
-public class EscaleraReal implements Comparacion {
+public class EscaleraReal implements Clasificacion {
     
-    private Comparacion siguiente;
+    private Clasificacion siguiente;
     
     public EscaleraReal() {
         this.siguiente = new EscaleraColor();
     }
     
-    public Comparacion getSiguiente() {
+    public Clasificacion getSiguiente() {
         return siguiente;
     }
     
-    public void setSiguiente(Comparacion siguiente) {
+    public void setSiguiente(Clasificacion siguiente) {
         this.siguiente = siguiente;
     }
     

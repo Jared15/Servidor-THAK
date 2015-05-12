@@ -2,19 +2,19 @@ package Manos;
 
 
 
-public class EscaleraColor implements Comparacion {
+public class EscaleraColor implements Clasificacion {
 
-    private Comparacion siguiente;
+    private Clasificacion siguiente;
     private int valor;
     public EscaleraColor( ) {
         this.siguiente = new Poker();
     }
 
-    public Comparacion getSiguiente() {
+    public Clasificacion getSiguiente() {
         return siguiente;
     }
 
-    public void setSiguiente(Comparacion siguiente) {
+    public void setSiguiente(Clasificacion siguiente) {
         this.siguiente = siguiente;
     }
 
