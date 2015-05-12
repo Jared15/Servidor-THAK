@@ -17,7 +17,6 @@ public class Juego {
 	private String estiloMesa;
 	private Date hora;
 	private List<Jugador> jugadores= new ArrayList<Jugador>();
-	private List<Ronda> rondas;
 	private List<Mano> manos;
 	
 
@@ -31,16 +30,6 @@ public class Juego {
 
 	public void setJugadores(List<Jugador> jugadores) {
 		this.jugadores = jugadores;
-	}
-
-
-	public List<Ronda> getRondas() {
-		return rondas;
-	}
-
-
-	public void setRondas(List<Ronda> rondas) {
-		this.rondas = rondas;
 	}
 
 

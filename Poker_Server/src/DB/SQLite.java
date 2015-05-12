@@ -16,7 +16,7 @@ public class SQLite
     
     try {
       Class.forName("org.sqlite.JDBC");
-      c = DriverManager.getConnection("jdbc:sqlite:/home/javier-vasquez/Escritorio/thak.db");
+      c = DriverManager.getConnection("jdbc:sqlite:C:/Users/sala_a/Desktop/thak.db");
       System.out.println("Base de Datos Iniciada");
     } catch ( Exception e ) {
       System.err.println( e.getClass().getName() + ": " + e.getMessage() );
