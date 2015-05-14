@@ -152,8 +152,8 @@ private static final long serialVersionUID = 1L;
 			List<String> a= new ArrayList<String>();
 			a.add(j1.getNombre());
 			a.add(j1.getPuntos()+"");
-			a.add(j1.getPartidasGanadas()+"");
-			a.add(j1.getAvatar());
+			a.add("0");//TODO HACER METODO PARA TRAER LAS PARTIDAS GANADAS DE LA BD 
+			a.add(sqlite.getPathJugador(j1.getNombre()));
 			
 			r.add(a);
 		}

@@ -16,7 +16,7 @@ public class SQLite
     
     try {
       Class.forName("org.sqlite.JDBC");
-      c = DriverManager.getConnection("jdbc:sqlite:C:/Users/sala_a/Desktop/thak.db");
+      c = DriverManager.getConnection("jdbc:sqlite:thak.db");
       System.out.println("Base de Datos Iniciada");
     } catch ( Exception e ) {
       System.err.println( e.getClass().getName() + ": " + e.getMessage() );
@@ -141,7 +141,8 @@ public class SQLite
 	
       while ( rs.next() ) {
          if(rs.getString("NOMBRE").equalsIgnoreCase(us)){
-        	 j= new Jugador(rs.getString("NOMBRE"),Integer.parseInt(rs.getString("PUNTOS")),Integer.parseInt(rs.getString("PARTIDASGANADAS")),rs.getString("PATH"));
+        	 
+        	 j= new Jugador(rs.getString("NOMBRE"),Integer.parseInt(rs.getString("PUNTOS")));
         	 return  j;
          }
       }
@@ -152,6 +153,30 @@ public class SQLite
 		e.printStackTrace();
 	}
 	return null;
+	
 	  
   }
+  
+ public String getPathJugador(String us){
+	  
+	  ResultSet rs;
+	  String j;
+	try {
+		stmt = c.createStatement();
+		rs = stmt.executeQuery( "SELECT * FROM JUGADOR WHERE NOMBRE =\""+us+"\";" );
+	
+      while ( rs.next() ) {
+         if(rs.getString("NOMBRE").equalsIgnoreCase(us)){
+        	 j= rs.getString("PATH");
+        	 return  j;
+         }
+      }
+      rs.close();
+      stmt.close();
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	return null;
+ }
 }
