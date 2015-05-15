@@ -3,23 +3,11 @@ public class Carta {
 
 	private int valor;
 	private Palo palo;
-	private String path;
 
-
-
-	public String getPath() {
-		return path;
-	}
-
-	public void setPath(String path) {
-		this.path = path;
-	}
-
-	public Carta(int valor, Palo palo, String path) {
+	public Carta(int valor, Palo palo) {
 		super();
 		this.valor = valor;
 		this.palo = palo;
-		this.path = path;
 	}
 
 	public int getValor() {
@@ -49,5 +37,20 @@ public class Carta {
 			palos[i] = valores[i].toString();
 		}
 		return palos;
+	}
+
+	public String getPath() {
+		switch(getValorPalo()){
+		case "DIAMANTE":
+			return ("d"+getValor());
+		case "TREBOL":
+			return ("t"+getValor());
+		case "CORAZON":
+			return ("c"+getValor());
+		case "PICA":
+			return ("p"+getValor());
+			
+		}
+		return null;
 	}
 }

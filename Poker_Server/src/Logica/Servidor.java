@@ -25,7 +25,6 @@ public class Servidor extends Observable implements RMI{
 	
 protected Servidor() throws RemoteException {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 private static final long serialVersionUID = 1L;
 
@@ -46,7 +45,19 @@ private static final long serialVersionUID = 1L;
 	}
 	@Override
 	public String getPath(int carta) throws RemoteException {
-		return mesa.getCartas().get(carta).getPath();
+		Carta c= mesa.getCartas().get(carta);
+		switch(c.getValorPalo()){
+		case "DIAMANTE":
+			return ("d"+c.getValor());
+		case "TREBOL":
+			return ("t"+c.getValor());
+		case "CORAZON":
+			return ("c"+c.getValor());
+		case "PICA":
+			return ("p"+c.getValor());
+			
+		}
+		return null;
 	}
 	
     private class WrappedObserver implements Observer, Serializable {
@@ -91,8 +102,7 @@ private static final long serialVersionUID = 1L;
     }
 	@Override
 	public void notificarActualizacion(String path) throws RemoteException {
-		 
-		//notifyObservers(path);
+
 	}
 	@Override
 	public void crearJugador(String nombre, String pass,String PathAvatar) throws RemoteException {
@@ -160,30 +170,20 @@ private static final long serialVersionUID = 1L;
 		return r;
 	}
 	public void llenarMazo(int estilo) throws RemoteException {
-		switch (estilo) {
-		case 1:
 			mesa.llenarMazo();
-			break;
-		case 2:
-			mesa.llenarMazo2();
-			break;
-
-		default:
-			break;
-		}
-		
 	}
 	public void mostrarPrimeras3() throws RemoteException{
-		try {
-			System.out.println("Sleep 5 Segundos");
-			Thread.sleep(5000);
-			System.out.println("Salio!");
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		o.set(0, 1);
-		System.out.println("--------***"+((List<String>)o.get(1)).get(8));
+		o.set(0,1);
+		setChanged();
+		notifyObservers(o);
+	}
+	public void mostrarCuarta() throws RemoteException{
+		o.set(0,2);
+		setChanged();
+		notifyObservers(o);
+	}
+	public void mostrarQuinta() throws RemoteException{
+		o.set(0,3);
 		setChanged();
 		notifyObservers(o);
 	}
