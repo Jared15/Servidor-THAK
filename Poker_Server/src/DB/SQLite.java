@@ -32,7 +32,7 @@ public class SQLite
 		 prep.setString(1, nombre);
 		 prep.setString(2, pass);
 		 prep.setString(3, PathAvatar);
-		 prep.setString(4, "0");
+		 prep.setString(4, "1000");
 		 prep.setString(5, "0");
 
 		 prep.executeUpdate();

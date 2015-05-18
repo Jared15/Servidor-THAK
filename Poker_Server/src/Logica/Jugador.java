@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Manos.Carta;
+import Manos.Mano;
 
 public class Jugador {
 	
@@ -11,14 +12,15 @@ public class Jugador {
 		super();
 		this.nombre = nombre;
 		this.dinero = puntos;
+		this.mano = new Mano();
 	}
 
 	private String nombre;
 
 
 	private int dinero;
-	private List<Carta> mano= new ArrayList<Carta>();
-	
+	//private List<Carta> mano= new ArrayList<Carta>();
+	private Mano mano;
 	
 	
 	public Jugador(String nombre) {
@@ -31,10 +33,10 @@ public class Jugador {
 	public String getNombre() {
 		return nombre;
 	}
-	public List<Carta> getMano() {
+	public Mano getMano() {
 		return mano;
 	}
-	public void setMano(List<Carta> mano) {
+	public void setMano(Mano mano) {
 		this.mano = mano;
 	}
 	public void setNombre(String nombre) {

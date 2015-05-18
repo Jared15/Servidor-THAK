@@ -12,7 +12,7 @@ import Manos.Mano;
 
 public class Juego {
 	
-	private Jugador creador;
+	private int creador;
 	private int noJugadores;
 	private String estiloMesa;
 	private Date hora;
@@ -44,16 +44,17 @@ public class Juego {
 
 
 	public Jugador getCreador() {
-		return creador;
+		return jugadores.get(creador);
 	}
 
 
 	public void setCreador(Jugador creador) {
-		this.creador = creador;
+		this.creador = jugadores.indexOf(creador);
 	}
 
 
 	public int getNoJugadores() {
+		noJugadores=jugadores.size();
 		return noJugadores;
 	}
 

@@ -199,11 +199,11 @@ public class Mesa   {
 		 */
 		public void llenarJugadores(){
 			for(int i = 0 ; i<juego.getJugadores().size();i++){
-				juego.getJugadores().get(i).getMano().add(azar());
-				juego.getJugadores().get(i).getMano().add(azar());
+				juego.getJugadores().get(i).getMano().getCartas().add(azar());
+				juego.getJugadores().get(i).getMano().getCartas().add(azar());
 			}
 			for(int i = 0 ; i<juego.getJugadores().size();i++){
-				System.out.println(juego.getJugadores().get(i).getMano().get(0)+"-----"+juego.getJugadores().get(i).getMano().get(1));
+				System.out.println(juego.getJugadores().get(i).getMano().getCartas().get(0)+"-----"+juego.getJugadores().get(i).getMano().getCartas().get(1));
 			}
 		}
 		
@@ -215,7 +215,7 @@ public class Mesa   {
 			List<Carta> cartas;
 			for(Jugador j: juego.getJugadores()){
 				cartas= new ArrayList<Carta>();
-				cartas.addAll(j.getMano());
+				cartas.addAll(j.getMano().getCartas());
 				cartas.addAll(cartas);
 				Mano m = new Mano(cartas);
 				juego.getManos().add(m);

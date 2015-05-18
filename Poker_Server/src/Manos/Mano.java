@@ -23,7 +23,11 @@ public class Mano {
         this.cartas = cartas;
     }
 
-    public List<Carta> getCartas() {
+    public Mano() {
+    	cartas=new ArrayList<Carta>();
+	}
+
+	public List<Carta> getCartas() {
         return cartas;
     }
 
