@@ -10,7 +10,7 @@ public class Mano {
 
     private int clasificacion;
     private List<Carta> cartas;
-
+    private int id;
     public int getClasificacion() {
         return clasificacion;
     }
@@ -27,6 +27,11 @@ public class Mano {
     	cartas=new ArrayList<Carta>();
 	}
 
+	public Mano(List<Carta> cartas2, Integer i) {
+		this.cartas=cartas2;
+		this.id=i;
+	}
+
 	public List<Carta> getCartas() {
         return cartas;
     }
@@ -34,8 +39,24 @@ public class Mano {
     public void setCartas(List<Carta> cartas) {
         this.cartas = cartas;
     }
+    
+    
 
-    public void OrdenarMano(String prioridad) {
+    /**
+	 * @return the id
+	 */
+	public int getId() {
+		return id;
+	}
+
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public void OrdenarMano(String prioridad) {
 
         if (prioridad.equalsIgnoreCase("valor")) {
             Collections.sort(cartas, new ComparadorValor());

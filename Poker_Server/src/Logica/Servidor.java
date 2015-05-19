@@ -22,9 +22,10 @@ public class Servidor extends Observable implements RMI {
 	static SQLite sqlite;
 	List<Object> o;
 	private int ronda=0;
-	private int turno=1;
+	private int turno=0;
 	private int jugadorInicial=1;
 	private static List<Integer> participando;
+
 	
 	protected Servidor() throws RemoteException {
 		super();
@@ -159,6 +160,7 @@ public class Servidor extends Observable implements RMI {
 		}		
 		o.add(0);
 		o.add(0);
+		o.add(0);
 		o.add(ls);
 		setChanged();
 		notifyObservers(o);
@@ -201,7 +203,7 @@ public class Servidor extends Observable implements RMI {
 	}
 
 	public void llenarMazo(int estilo) throws RemoteException {
-		mesa.llenarMazo();
+		mesa.llenarMazo();		
 	}
 
 	public void mostrarPrimeras3() throws RemoteException {
@@ -228,22 +230,27 @@ public class Servidor extends Observable implements RMI {
 	@Override
 	public void siguienteRonda() throws RemoteException {
 		ronda++;
-		o.set(0, 0);
-		o.set(1, ronda);
-		setChanged();
-		notifyObservers(o);
-		
+		if(ronda<4){
+			o.set(0, 0);
+			o.set(1, ronda);
+			setChanged();
+			notifyObservers(o);	
+		}else{
+			int ganador=mesa.encontrarGanador(participando);
+			ganador(ganador);
+		}
+			
 	}
 
 	@Override
 	public void pasarTurno() throws RemoteException {
 		turno++;		
-		turno=turno%mesa.getJuego().getNoJugadores();
+		turno=turno%participando.size();
 		o.set(0, 1);
-		o.set(1, (turno+1));
+		o.set(1, 0);
+		o.set(2, participando.get(turno));
 		setChanged();
-		notifyObservers(o);
-		
+		notifyObservers(o);		
 	}
 
 	@Override
@@ -252,9 +259,32 @@ public class Servidor extends Observable implements RMI {
 		turno=turno%participando.size();
 		o.set(0, jugador);
 		o.set(1, cantidad);
+		o.set(2, participando.get(turno));
 		setChanged();
-		notifyObservers(o);
+		notifyObservers(o);		
+	}
+
+	@Override
+	public void retirarse(int jugador) throws RemoteException {
+		for(int i=0;i<participando.size();i++){
+			if(participando.get(i)==jugador){
+				participando.remove(i);
+			}
+		}	
+		if(participando.size()==1){
+			ganador(participando.get(0));
+		}
+		turno--;
+		pasarTurno();
+			
 		
 	}
 
+	private void ganador(Integer jugador) {
+		o.set(0, -1);
+		o.set(1,jugador );		
+		setChanged();
+		notifyObservers(o);	
+		
+	}
 }

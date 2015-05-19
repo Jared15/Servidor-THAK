@@ -17,7 +17,7 @@ public class Juego {
 	private String estiloMesa;
 	private Date hora;
 	private List<Jugador> jugadores= new ArrayList<Jugador>();
-	private List<Mano> manos;
+	private List<Mano> manos=new ArrayList<Mano>();
 	
 
 
