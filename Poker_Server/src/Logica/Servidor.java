@@ -7,7 +7,9 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -23,9 +25,11 @@ public class Servidor extends Observable implements RMI {
 	List<Object> o;
 	private int ronda=0;
 	private int turno=0;
+	private int rondaApuesta=0;
 	private int jugadorInicial=1;
 	private static List<Integer> participando;
-
+	private int minApuesta;
+	private Map a= new HashMap<Integer,Integer>();
 	
 	protected Servidor() throws RemoteException {
 		super();
@@ -244,24 +248,51 @@ public class Servidor extends Observable implements RMI {
 
 	@Override
 	public void pasarTurno() throws RemoteException {
+		rondaApuesta++;
+		System.out.println("------"+(int)rondaApuesta/participando.size());
 		turno++;		
 		turno=turno%participando.size();
 		o.set(0, 1);
 		o.set(1, 0);
 		o.set(2, participando.get(turno));
 		setChanged();
-		notifyObservers(o);		
+		notifyObservers(o);
+		
 	}
 
+	public void map(int jugador, int cantidad){
+		a.put(jugador, cantidad);
+		//TODO para manejar que todos apuesten lo mismo
+	}
+	
+	public boolean verificarMap(){
+		//TODO para manejar que todos hagan lo mismo
+		return false;
+		
+	}
+	
+	public void limpiarMap(){
+		a.clear();
+	}
 	@Override
 	public void apostar(int jugador, int cantidad) throws RemoteException {		
 		turno++;		
+		rondaApuesta++;
+
 		turno=turno%participando.size();
+		if(minApuesta<cantidad){
+			minApuesta=cantidad;
+			o.set(3, minApuesta);
+		}else{
+			o.set(3, minApuesta);
+		}
 		o.set(0, jugador);
 		o.set(1, cantidad);
 		o.set(2, participando.get(turno));
+		o.set(4, (int)rondaApuesta/participando.size());
 		setChanged();
-		notifyObservers(o);		
+		notifyObservers(o);	
+		
 	}
 
 	@Override
