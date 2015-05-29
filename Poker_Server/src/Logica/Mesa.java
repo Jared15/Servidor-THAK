@@ -207,6 +207,13 @@ public class Mesa   {
 			}
 		}
 		
+		public void nuevaMano(){
+			cartas.clear();
+			for(int i = 0 ; i<juego.getJugadores().size();i++){
+				juego.getJugadores().get(i).getMano().getCartas().clear();			
+			}
+		}
+		
 		
 		/**
 		 * LLena una estructura llamada manos en la cual de encuentran las 5 cartas que estan en la mesa y las dos que tiene cada jugador en la mano con el fin de compararlas e identificar la mano ganadora
