@@ -206,7 +206,9 @@ public class Mesa   {
 				//System.out.println(juego.getJugadores().get(i).getMano().getCartas().get(0)+"-----"+juego.getJugadores().get(i).getMano().getCartas().get(1));
 			}
 		}
-		
+		/**
+		 * Genera las operaciones para crear una siguiente mano
+		 */
 		public void nuevaMano(){
 			cartas.clear();
 			for(int i = 0 ; i<juego.getJugadores().size();i++){
@@ -217,7 +219,7 @@ public class Mesa   {
 		
 		/**
 		 * LLena una estructura llamada manos en la cual de encuentran las 5 cartas que estan en la mesa y las dos que tiene cada jugador en la mano con el fin de compararlas e identificar la mano ganadora
-		 * @param participando 
+		 * @param participando Lista de los identificadores de los jugadores que estan en la mesa
 		 */
 		public void llenarManos(List<Integer> participando){
 			List<Carta> cartas;
@@ -231,7 +233,11 @@ public class Mesa   {
 			Collections.sort(juego.getManos(),new ComparadorMano());
 			
 		}
-
+		/**.
+		 * Verifica cual es el ganador de la mano 
+		 * @param participando Lista de los identificadores de los jugadores que estan en la mesa
+		 * @return id de jugador ganador
+		 */
 		public int encontrarGanador(List<Integer> participando) {
 			llenarManos(participando);
 			
