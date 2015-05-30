@@ -319,7 +319,7 @@ public class SQLite {
 		}		
 	}
 /**
- * 
+ * Este método
  * @param nombre
  * @param cantidad
  */
