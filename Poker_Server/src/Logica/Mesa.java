@@ -16,22 +16,34 @@ public class Mesa   {
 
 		Juego juego = new Juego();
 		
-		
+		/**
+		 * Contructor sin parametros de la clase mesa
+		 */
 		public Mesa() {
 			super();
 			
 		}
-
+		/**
+		 * Contructor con parametros de la Clase mesa
+		 * @param mazo
+		 * @param juego
+		 */
 		public Mesa(List<Carta> mazo, Juego juego) {
 			super();
 			this.mazo = mazo;
 			this.juego = juego;
 		}
-
+		/**
+		 * Obtiene la lista de la cartas de la mesa
+		 * @return lista de cartas que estan en la mesa
+		 */
 		public List<Carta> getCartas() {
 			return cartas;
 		}
-
+		/**
+		 * Establece las cartas que hay en la mesa 
+		 * @param cartas que deben estar en la mesa
+		 */
 		public void setCartas(List<Carta> cartas) {
 			this.cartas = cartas;
 		}
