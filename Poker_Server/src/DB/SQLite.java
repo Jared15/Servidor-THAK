@@ -39,7 +39,7 @@ public class SQLite {
 			c.commit();
 
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 	}
@@ -64,7 +64,7 @@ public class SQLite {
 			c.commit();
 
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 	}
@@ -78,8 +78,7 @@ public class SQLite {
 			c.setAutoCommit(false);
 			c.commit();
 
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+		} catch (SQLException e) {	
 			e.printStackTrace();
 		}
 	}
@@ -101,7 +100,7 @@ public class SQLite {
 			rs.close();
 			stmt.close();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		return false;
@@ -125,7 +124,7 @@ public class SQLite {
 			rs.close();
 			stmt.close();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		return false;
@@ -153,7 +152,7 @@ public class SQLite {
 			rs.close();
 			stmt.close();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		return null;
@@ -180,7 +179,7 @@ public class SQLite {
 			rs.close();
 			stmt.close();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		return null;
@@ -205,7 +204,7 @@ public class SQLite {
 			rs.close();
 			stmt.close();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		return null;
@@ -230,8 +229,7 @@ public class SQLite {
 			}
 			rs.close();
 			stmt.close();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+		} catch (SQLException e) {			
 			e.printStackTrace();
 		}
 		return listadeListas;
@@ -330,6 +328,77 @@ public class SQLite {
 		}		
 		
 		
+	}
+
+	public void guardarColores(String fondo, int carta, String mesa, String usuario) {
+		try {			
+			PreparedStatement prep = c
+					.prepareStatement("UPDATE JUGADOR set FONDO = ? where NOMBRE = ?;");
+			prep.setString(1, fondo);
+			prep.setString(2, usuario);
+			prep.executeUpdate();
+			c.setAutoCommit(false);
+			c.commit();
+			prep = c.prepareStatement("UPDATE JUGADOR set Mesa = ? where NOMBRE = ?;");
+			prep.setString(1, mesa);
+			prep.setString(2, usuario);
+			prep.executeUpdate();
+			c.setAutoCommit(false);
+			c.commit();
+			prep = c.prepareStatement("UPDATE JUGADOR set CARTA = ? where NOMBRE = ?;");
+			prep.setString(1, carta+"");
+			prep.setString(2, usuario);
+			prep.executeUpdate();
+			c.setAutoCommit(false);
+			c.commit();
+		} catch (SQLException e) {			
+			e.printStackTrace();
+		}
+		
+	}
+
+	public double promedioGanadas() {
+		ResultSet rs;
+		double promedio=0;
+		try {
+			stmt = c.createStatement();
+			rs = stmt.executeQuery("SELECT * FROM JUGADOR WHERE NOMBRE =?");
+
+			while (rs.next()) {
+					promedio = rs.getDouble(0);				
+			}
+			rs.close();
+			stmt.close();				
+
+		} catch (SQLException e) {			
+			e.printStackTrace();
+		}		
+		return promedio;
+	}
+
+	public List<List<String>> getReportes() {
+		ResultSet rs;
+		String j;
+		List<List<String>> listadeListas = new ArrayList<List<String>>();
+		try {
+			stmt = c.createStatement();
+			rs = stmt.executeQuery("SELECT * FROM DENUNCIO;");
+
+			while (rs.next()) {
+				List<String> lista = new ArrayList<String>();
+				lista.add(rs.getString("JUGADOR"));
+				lista.add(rs.getString("MOTIVO"));
+				lista.add(rs.getString("DESCRIPCION"));
+				lista.add(rs.getString("LEIDO"));
+
+				listadeListas.add(lista);
+			}
+			rs.close();
+			stmt.close();
+		} catch (SQLException e) {			
+			e.printStackTrace();
+		}
+		return listadeListas;
 	}
 
 }

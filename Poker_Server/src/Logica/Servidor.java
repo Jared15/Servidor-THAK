@@ -36,6 +36,7 @@ public class Servidor extends Observable implements RMI {
 	private Map a = new HashMap<Integer, Integer>();
 	Set<Integer> aposto=new   HashSet<Integer>() ;
 	private int bote=0;
+	private boolean iniciada=false;
 	 
 
 	protected Servidor() throws RemoteException {
@@ -417,6 +418,7 @@ public class Servidor extends Observable implements RMI {
 
 	@Override
 	public void iniciarPartida() throws RemoteException {
+		iniciada=true;
 		o=new ArrayList<Object>();
 		o.add(-2);
 		o.add(0);
@@ -452,4 +454,33 @@ public class Servidor extends Observable implements RMI {
 			 sqlite.actualizarDinero(nombre,cantidad);
 		 
 	 }
+
+	@Override
+	public String getPass(String arg0) throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean isIniciada() throws RemoteException {
+		return iniciada;
+		
+	}
+
+	@Override
+	public void guardarColores(String fondo, int carta, String mesa,String usuario)
+			throws RemoteException {
+		sqlite.guardarColores(fondo,carta,mesa,usuario);
+		
+	}
+
+	@Override
+	public double promedioGanadas() throws RemoteException {
+		return sqlite.promedioGanadas();
+	}
+
+	@Override
+	public List<List<String>> getReportes() throws RemoteException {
+		return sqlite.getReportes();
+	}
 }
