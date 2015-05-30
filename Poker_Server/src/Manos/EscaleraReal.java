@@ -2,24 +2,41 @@ package Manos;
 
 
 import java.util.List;
+/**
+ * Esta clase representa la jugada del poker Escalera
+ * @author Jacoj
+ */
 
 
 public class EscaleraReal implements Clasificacion {
-    
+	/**
+	 * Es el atributo clasificación que representa su siguiente jugada mayor
+	 */
     private Clasificacion siguiente;
-    
+    /**
+     * Es la instancia de un EscaleraCOlor
+     */
     public EscaleraReal() {
         this.siguiente = new EscaleraColor();
     }
-    
+    /**
+     * Es el método Get del atributo Siguiente.
+     * @return el valor del atributo Siguiente.
+     */
     public Clasificacion getSiguiente() {
         return siguiente;
     }
-    
+    /**
+     * Es el método Set del atributo Siguiente.
+     * @param siguiente Es el nuevo valor del atributo.
+     */
     public void setSiguiente(Clasificacion siguiente) {
         this.siguiente = siguiente;
     }
-    
+    /**
+     * Es el método que se implementa de la interfaz Clasification
+     * Clasifica una mano.
+     */
     public int clasificarMano(Mano mano) {
         mano.OrdenarMano("palo"); //ordenar cartas para comparar despues
         int valor = 10;
@@ -65,7 +82,10 @@ public class EscaleraReal implements Clasificacion {
         }
         return clasificacion;
     }
-
+    /**
+     * Es el metodo que se implementa de la interfaz clasification
+     * Compara dos manos y retorna la de mayor valor.
+     */
     @Override
     public int comparar(Mano mano1, Mano mano2) {
     	
