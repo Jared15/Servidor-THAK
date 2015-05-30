@@ -26,7 +26,8 @@ public class GUIServidor extends JFrame {
 	JButton btnIniciar;
 
 	/**
-	 * Launch the application.
+	 * 
+	 * inicia la aplicacion Servidor
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -34,7 +35,7 @@ public class GUIServidor extends JFrame {
 				try {
 					GUIServidor frame = new GUIServidor();
 					frame.setVisible(true);
-					
+
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -43,7 +44,7 @@ public class GUIServidor extends JFrame {
 	}
 
 	/**
-	 * Create the frame.
+	 * crea la interfaz GUIServidos con sus componentes
 	 */
 	public GUIServidor() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -52,32 +53,37 @@ public class GUIServidor extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+
 		btnIniciar = new JButton("INICIAR");
 		btnIniciar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {					
-				Servidor.main(null);	
+			/**
+			 * inicia el servidor
+			 */
+			public void actionPerformed(ActionEvent e) {
+				Servidor.main(null);
 				btnIniciar.setEnabled(false);
 			}
 		});
 		btnIniciar.setBounds(98, 289, 107, 49);
 		contentPane.add(btnIniciar);
-		
+
 		JButton btnDetener = new JButton("DETENER");
 		btnDetener.addActionListener(new ActionListener() {
+			/**
+			 * cierra el servidor
+			 */
 			public void actionPerformed(ActionEvent arg0) {
 				System.exit(0);
 			}
 		});
 		btnDetener.setBounds(285, 289, 107, 49);
 		contentPane.add(btnDetener);
-		
+
 		JLabel fondo = new JLabel("");
 		fondo.setIcon(new ImageIcon("guiAzul.png"));
 		fondo.setBounds(0, 0, 584, 362);
 		contentPane.add(fondo);
-		
+
 	}
-	
-	
+
 }

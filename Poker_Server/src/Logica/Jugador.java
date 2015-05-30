@@ -19,7 +19,6 @@ public class Jugador {
 
 
 	private int dinero;
-	//private List<Carta> mano= new ArrayList<Carta>();
 	private Mano mano;
 	
 	
