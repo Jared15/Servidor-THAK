@@ -35,19 +35,31 @@ public class Mesa   {
 		public void setCartas(List<Carta> cartas) {
 			this.cartas = cartas;
 		}
-
+		/**
+		 * Obtiene 
+		 * @return
+		 */
 		public List<Carta> getMazo() {
 			return mazo;
 		}
-
+		/**
+		 * Establece el mazo con el que se va a jugar en la mesa
+		 * @param mazo del juego
+		 */
 		public void setMazo(List<Carta> mazo) {
 			this.mazo = mazo;
 		}
-
+		/**
+		 * Obtiene Obtiene el juego de la mesa
+		 * @return el juego de la mesa
+		 */
 		public Juego getJuego() {
 			return juego;
 		}
-
+		/**
+		 * Establece el juego de la mesa
+		 * @param juego parametro que establece la mesa
+		 */
 		public void setJuego(Juego juego) {
 			this.juego = juego;
 		}
