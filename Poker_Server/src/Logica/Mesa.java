@@ -36,8 +36,8 @@ public class Mesa   {
 			this.cartas = cartas;
 		}
 		/**
-		 * Obtiene  el mazo de la mesa
-		 * @return
+		 * Obtiene el mazo de cartas la mesa
+		 * @return el mazo de la mesa
 		 */
 		public List<Carta> getMazo() {
 			return mazo;
