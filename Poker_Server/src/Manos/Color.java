@@ -5,16 +5,32 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-
+/**
+ * Esta clase implemente la interfaz Clasificación
+ * Representa una de las posibles jugadas del juego.
+ * @author Jacoj
+ *
+ */
 public class Color implements Clasificacion {
 
+	/**
+	 * Es un atributo Clasificación que representa cual es el siguien en su cadena de mayores.
+	 */
     private Clasificacion siguiente;
+    /**
+     * Es el atributo String palo que representa a que palo pertenece dicha jugada.
+     */
     private String palo;
-
+/**
+ * Es un método que isntancia una escalera.
+ */
     Color() {
         siguiente = new Escalera();
     }
-
+/**
+ * Es un método que se implementa pero viene de la interfaz.
+ * Realiza una clasificación de una mano.
+ */
     public int clasificarMano(Mano mano) {
         mano.OrdenarMano("palo");
         int i = 1, largo = 1, mayor = 0;
@@ -37,7 +53,10 @@ public class Color implements Clasificacion {
         }
         return 5;
     }
-
+/**
+ * Es la implementación del método de la interfaz clasificación.
+ * Realiza una comparación entre dos manos.
+ */
     @Override
     public int comparar(Mano mano1, Mano mano2) {
         if (mano1.getClasificacion() != 5) {
