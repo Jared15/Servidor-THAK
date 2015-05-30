@@ -39,7 +39,7 @@ public class Servidor extends Observable implements RMI {
 	private boolean iniciada=false;
 	 
 
-	protected Servidor() throws RemoteException {
+	public Servidor(){
 		super();
 		participando = new ArrayList<Integer>();
 	}
@@ -391,16 +391,12 @@ public class Servidor extends Observable implements RMI {
 		notifyObservers(o);
 		actualizarDinero(jugador, -bote);
 		sqlite.registrarGanador(mesa.getJuego().getJugadores().get(jugador-1).getNombre());
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+		
 	}
 
 	@Override
-	public void agregarNota(String arg0) throws RemoteException {
-		// TODO Auto-generated method stub
+	public void agregarNota(String nota,String usuario) throws RemoteException {
+		sqlite.agregarNota(nota,usuario);
 
 	}
 

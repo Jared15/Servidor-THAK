@@ -345,7 +345,7 @@ public class SQLite {
 			prep.executeUpdate();
 			c.setAutoCommit(false);
 			c.commit();
-			prep = c.prepareStatement("UPDATE JUGADOR set CARTA = ? where NOMBRE = ?;");
+			prep = c.prepareStatement("UPDATE JUGADOR set CARTAS = ? where NOMBRE = ?;");
 			prep.setString(1, carta+"");
 			prep.setString(2, usuario);
 			prep.executeUpdate();
@@ -399,6 +399,22 @@ public class SQLite {
 			e.printStackTrace();
 		}
 		return listadeListas;
+	}
+
+	public void agregarNota(String nota, String usuario) {
+		try {			
+			PreparedStatement prep = c
+					.prepareStatement("UPDATE JUGADOR set NOTAS = ? where NOMBRE = ?;");
+			prep.setString(1, nota);
+			prep.setString(2, usuario);
+			prep.executeUpdate();
+			c.setAutoCommit(false);
+			c.commit();
+
+		} catch (SQLException e) {			
+			e.printStackTrace();
+		}
+		
 	}
 
 }
