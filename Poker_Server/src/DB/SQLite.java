@@ -319,9 +319,9 @@ public class SQLite {
 		}		
 	}
 /**
- * Este método
- * @param nombre
- * @param cantidad
+ * Este método actualiza la cantidad de dinero de un usuario
+ * @param nombre Es el nombre de usuario del jugador.
+ * @param cantidad Es la cantidad del monto.
  */
 	public void actualizarDinero(String nombre, int cantidad) {
 		ResultSet rs;
@@ -354,7 +354,10 @@ public class SQLite {
 		}		
 		
 	}
-
+/**
+ * 
+ * @param nombre nombre del usuario.
+ */
 	public void registrarGanador(String nombre) {
 		ResultSet rs;
 		int ganadas=0;
