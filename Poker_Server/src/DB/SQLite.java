@@ -355,7 +355,7 @@ public class SQLite {
 		
 	}
 /**
- * 
+ * Este método registra un ganador a partir del nombre de usuario.
  * @param nombre nombre del usuario.
  */
 	public void registrarGanador(String nombre) {
@@ -387,7 +387,13 @@ public class SQLite {
 		
 		
 	}
-
+/**
+ * Este método guarda los colores  y configuración de una mesa.
+ * @param fondo Es el fondo de la configuración.
+ * @param carta Es la carta que esta en la configuración.
+ * @param mesa Es la mesa que esta en la configuración.
+ * @param usuario Es el nombre del usuario que esta solicitando el cambio y configuración.
+ */
 	public void guardarColores(String fondo, int carta, String mesa, String usuario) {
 		try {			
 			PreparedStatement prep = c
@@ -414,7 +420,10 @@ public class SQLite {
 		}
 		
 	}
-
+/**
+ * Este método saca el promedio de partidas ganadas en general.
+ * @return retorna un tipo double con el promedio general de partidas ganadas.
+ */
 	public double promedioGanadas() {
 		ResultSet rs;
 		double promedio=0;
@@ -433,7 +442,10 @@ public class SQLite {
 		}		
 		return promedio;
 	}
-
+/**
+ * Esté método genera reporte de todos los usuarios en la base de datos.
+ * @return retorna una lista de String con los usuarios retornados.
+ */
 	public List<List<String>> getReportes() {
 		ResultSet rs;
 		String j;
@@ -458,7 +470,11 @@ public class SQLite {
 		}
 		return listadeListas;
 	}
-
+/**
+ * Este método agrega una nota digitada por un usuario en la interfaz
+ * @param nota Es el String de la nota.
+ * @param usuario Es el nombre de usuario que digita la nota.
+ */
 	public void agregarNota(String nota, String usuario) {
 		try {			
 			PreparedStatement prep = c
