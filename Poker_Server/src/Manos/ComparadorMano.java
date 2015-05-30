@@ -3,9 +3,16 @@ package Manos;
 
 import java.util.Comparator;
 
-
+/**
+ * Esta clase compara las manos e implemente la interfaz comparator
+ * @author Jacoj
+ *
+ */
 public class ComparadorMano implements Comparator {
-
+/**
+ * Es la implementación del metodo de la interfaz Comparator
+ * Compara dos objetos y retorna un String con el mayor,
+ */
     @Override
     public int compare(Object o1, Object o2) {
         Mano mano1=(Mano) o1;

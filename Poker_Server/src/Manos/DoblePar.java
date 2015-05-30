@@ -3,18 +3,33 @@ package Manos;
 
 import java.util.ArrayList;
 import java.util.List;
-
-
+/**
+ * Esta clase representa la jugada del poker DoblePar
+ * @author Jacoj
+ */
 public class DoblePar implements Clasificacion {
-
+/**
+ * Es el atributo clasificación que representa su siguiente jugada mayor
+ */
     private Clasificacion siguiente;
+    /**
+     * Es el valor del par1 en un atributo
+     */
     private int valorPar1;
+    /**
+     * Es el valor del par2 en un atributo
+     */
     private int valorPar2;
-
+/**
+ * Es la instancia de un par
+ */
     public DoblePar() {
         siguiente = new Par();
     }
-
+/**
+ * Es el método que se implementa de la interfaz Clasification
+ * Clasifica una mano.
+ */
     @Override
     public int clasificarMano(Mano mano) {
         int clasificacion = 8;
@@ -33,7 +48,10 @@ public class DoblePar implements Clasificacion {
         }
         return clasificacion;
     }
-
+/**
+ * Es el metodo que se implementa de la interfaz clasification
+ * Compara dos manos y retorna la de mayor valor.
+ */
     @Override
     public int comparar(Mano mano1, Mano mano2) {
         if (mano1.getClasificacion() != 8) {
