@@ -3,17 +3,30 @@ package Manos;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * Esta clase representa la jugada del poker Poker
+ * @author Jacoj
+ */
 
 public class Poker implements Clasificacion {
-
+	/**
+	 * Es el atributo clasificación que representa su siguiente jugada mayor
+	 */
     private final Clasificacion siguiente;
+    /**
+     * Es el valor del valor en un atributo
+     */
     private int valor;
-
+    /**
+     * Es la instancia de un FULL
+     */
     public Poker() {
         this.siguiente = new Full();
     }
-
+    /**
+     * Es el método que se implementa de la interfaz Clasification
+     * Clasifica una mano.
+     */
     public int clasificarMano(Mano mano) {
         int clasificacion = 3;
         mano.OrdenarMano("valor");
@@ -42,7 +55,10 @@ public class Poker implements Clasificacion {
         
         return clasificacion;
     }
-
+    /**
+     * Es el metodo que se implementa de la interfaz clasification
+     * Compara dos manos y retorna la de mayor valor.
+     */
     @Override
     public int comparar(Mano mano1, Mano mano2) {
         if (mano1.getClasificacion() != 3) {

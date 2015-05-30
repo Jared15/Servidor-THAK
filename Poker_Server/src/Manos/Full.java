@@ -1,17 +1,33 @@
 package Manos;
 
-
+/**
+ * Esta clase representa la jugada del poker Full
+ * @author Jacoj
+ */
 
 public class Full implements Clasificacion {
-
+	/**
+	 * Es el atributo clasificación que representa su siguiente jugada mayor
+	 */
     private final Clasificacion siguiente;
+    /**
+     * Es el valor del valorTrio en un atributo
+     */
     private int valorTrio;
+    /**
+     * Es el valor del valorPar en un atributo
+     */
     private int valorPar;
-    
+    /**
+     * Es la instancia de un par
+     */
     public Full() {
         this.siguiente =new Color();
     }
-
+    /**
+     * Es el método que se implementa de la interfaz Clasification
+     * Clasifica una mano.
+     */
     public int clasificarMano(Mano mano) {
         int clasificacion = 4;
         mano.OrdenarMano("valor");
@@ -34,7 +50,10 @@ public class Full implements Clasificacion {
         }
         return clasificacion;
     }
-
+    /**
+     * Es el metodo que se implementa de la interfaz clasification
+     * Compara dos manos y retorna la de mayor valor.
+     */
     @Override
     public int comparar(Mano mano1, Mano mano2) {
         

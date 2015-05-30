@@ -3,35 +3,64 @@ package Manos;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * Esta clase representa la jugada del poker Par
+ * @author Jacoj
+ */
 
 public class Par implements Clasificacion {
+	/**
+	 * Es el atributo clasificación que representa su siguiente jugada mayor
+	 */
     private Clasificacion siguiente;
+    /**
+     * Es el valor del ignorado en un atributo
+     */
     private int ignorado;
+    /**
+     * Es el valor del valor en un atributo
+     */
     private int valor;
-
+    /**
+     * Es la instancia de un par
+     */
     public Par() {
         siguiente=new CartaAlta();
     }
 
     
-    
+    /**
+     * Es el metodo get del atributo Valor
+     * @return El valor del atributo.
+     */
     public int getValor() {
         return valor;
     }
-
+/**
+ * Es el metodo Set del atributo valor
+ * @param valor Es el valor nuevo del atributo de la clase.
+ */
     public void setValor(int valor) {
         this.valor = valor;
     }
-
+/**
+ * Es el metoro get del atributo Ignorado.
+ * @return el valor del atributo ignorado de la clase.
+ */
     public int getIgnorado() {
         return ignorado;
     }
-
+/**
+ * Es el metoro Set del atributo Ignorado.
+ * @param ignorado Es el valor nuevo del atributo de clase.
+ */
     public void setIgnorado(int ignorado) {
         this.ignorado = ignorado;
     }
-
+    /**
+     * Es el método que se implementa de la interfaz Clasification
+     * Clasifica una mano.
+     */
     @Override
     public int clasificarMano(Mano mano) {
         mano.OrdenarMano("valor");
@@ -60,7 +89,10 @@ public class Par implements Clasificacion {
 
         return clasificacion;
     }
-
+    /**
+     * Es el metodo que se implementa de la interfaz clasification
+     * Compara dos manos y retorna la de mayor valor.
+     */
     @Override
     public int comparar(Mano mano1, Mano mano2) {
         if(mano1.getClasificacion()!=9){

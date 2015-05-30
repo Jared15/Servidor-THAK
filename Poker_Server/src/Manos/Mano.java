@@ -4,7 +4,10 @@ package Manos;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
+/**
+ * Esta clase representa la jugada del poker Mano
+ * @author Jacoj
+ */
 
 public class Mano {
 
