@@ -20,16 +20,18 @@ public class SQLite {
 	 * Este método crea la base de datos a partir del archivo con la ruta
 	 * especificada
 	 */
-	public void crearDB() {
-
+	public boolean crearDB() {
+		boolean creada = false;
 		try {
 			Class.forName("org.sqlite.JDBC");
 			c = DriverManager.getConnection("jdbc:sqlite:thak.db");
 			System.out.println("Base de Datos Iniciada");
+			creada = true;
 		} catch (Exception e) {
 			System.err.println(e.getClass().getName() + ": " + e.getMessage());
 			System.exit(0);
 		}
+		return creada;
 	}
 
 	/**
